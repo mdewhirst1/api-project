@@ -67,9 +67,11 @@ function deleteBook(req, res) {
 // EDIT
 function editBook(req, res) {
   var book = books[req.params.id];
+  
   res.render("books/edit",{
     title: "edit book",
-    book: book
+    book: book,
+    edit: true
   });
 }
 
