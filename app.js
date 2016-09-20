@@ -5,6 +5,8 @@ var bodyParser= require('body-parser');
 var methodOverride= require('method-override');
 var app = express();
 
+var bodyParser = require('body-parser');
+
 var bookRoutes = require('./config/books-routes');
 var gameRoutes = require('./config/games-routes');
 
@@ -19,6 +21,8 @@ app.use(methodOverride(function(req, res){
     return method;
   }
 }));
+
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(layouts);
 

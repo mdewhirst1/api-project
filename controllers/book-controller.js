@@ -38,7 +38,13 @@ function showBook(req, res) {
 
 // CREATE
 function createBook(req, res) {
-  res.send("CREATE");
+  var book = {
+    id: books.length,
+    title: req.body.title,
+    body: req.body.body
+  };
+  books.push(book);
+  res.redirect("/books");
 }
 
 // NEW
