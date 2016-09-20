@@ -22,6 +22,7 @@ var games=[{
 // INDEX
 function indexGame(req, res) {
   res.render("games/index", {
+    title: "Games",
     games: games
   });
 }
