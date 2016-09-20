@@ -3,14 +3,17 @@ var books=[{
     title: "Adventure land",
     body:  "This is an adventure book"
   },
+  {
     id: 1,
     title: "Alice in wonderland",
     body:  "Chick fells down the hole"
   },
+  {
     id: 2,
     title: "3 Little piggies",
     body:  "Book about three fat little piggies"
   },
+  {
     id: 3,
     title: "Angels n Demons",
     body:  "Mindfuck"
@@ -23,7 +26,11 @@ function indexBook(req, res) {
 
 // SHOW
 function showBook(req, res) {
-  res.send("SHOW: " + req.params.id);
+  var book = books[req.params.id];
+  res.render("books/show",{
+    title: "Books",
+    book: book
+  });
 }
 
 // CREATE
