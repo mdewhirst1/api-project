@@ -13,6 +13,6 @@ app.use(layouts);
 app.use(bookRoutes);
 app.use(gameRoutes);
 
-app.listen(3000 , function(){
+app.listen(process.env.PORT || 3000 , function(){
   console.log('app is listening on port 3000');
 });
