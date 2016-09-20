@@ -42,7 +42,10 @@ function createBook(req, res) {
 
 // NEW
 function newBook(req, res) {
-  res.send("NEW");
+  var book = books[req.params.id];
+  res.render("books/new",{
+    title: "new book"
+  });
 }
 
 // UPDATE
