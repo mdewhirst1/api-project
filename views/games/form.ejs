@@ -1,0 +1,10 @@
+<form action="/<%= game.id %>" method="POST">
+  <% if (edit) {%>
+  <input type="hidden" name="_method" value="PUT">
+  <% } %>
+  <input type="text" name="title" value="<%= game.title %>" placeholder="Title goes here">
+  <textarea name="body" placeholder="Body goes here">
+    <%= game.body %>
+  </textarea>
+  <input type="submit" value="save game">
+</form>
