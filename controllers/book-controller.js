@@ -42,7 +42,6 @@ function createBook(req, res) {
 
 // NEW
 function newBook(req, res) {
-  var book = books[req.params.id];
   res.render("books/new",{
     title: "new book"
   });
@@ -60,7 +59,11 @@ function deleteBook(req, res) {
 
 // EDIT
 function editBook(req, res) {
-  res.send("EDIT: " + req.params.id);
+  var book = books[req.params.id];
+  res.render("books/edit",{
+    title: "edit book",
+    book: book
+  });
 }
 
 module.exports = {
