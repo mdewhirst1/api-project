@@ -28,7 +28,11 @@ function indexBook(req, res) {
 
 // SHOW
 function showBook(req, res) {
-  res.send("SHOW: " + req.params.id);
+  var book = books[req.params.id];
+  res.render("books/show",{
+    title: "Books",
+    book: book
+  });
 }
 
 // CREATE
