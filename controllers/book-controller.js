@@ -22,6 +22,7 @@ var books=[{
 // INDEX
 function indexBook(req, res) {
   res.render("books/index", {
+    title: "book index",
     books: books
   });
 }
