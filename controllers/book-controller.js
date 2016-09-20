@@ -3,22 +3,27 @@ var books=[{
     title: "Adventure land",
     body:  "This is an adventure book"
   },
+  {
     id: 1,
     title: "Alice in wonderland",
     body:  "Chick fells down the hole"
   },
+  {
     id: 2,
     title: "3 Little piggies",
     body:  "Book about three fat little piggies"
   },
+  {
     id: 3,
     title: "Angels n Demons",
     body:  "Mindfuck"
-  }];
+}];
 
 // INDEX
 function indexBook(req, res) {
-  res.render("books/index");
+  res.render("books/index", {
+    books: books
+  });
 }
 
 // SHOW
@@ -52,11 +57,11 @@ function editBook(req, res) {
 }
 
 module.exports = {
-	index: indexBook,
-	show: showBook,
-	create: createBook,
-	new: newBook,
-	update: updateBook,
-	delete: deleteBook,
-	edit: editBook
+  index: indexBook,
+  show: showBook,
+  create: createBook,
+  new: newBook,
+  update: updateBook,
+  delete: deleteBook,
+  edit: editBook
 };

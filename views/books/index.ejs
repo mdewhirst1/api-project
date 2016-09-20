@@ -1,2 +1,5 @@
 <h1>Book index</h1>
-<p>this displays all books</p>
+<% for (var i = 0; i < books.length; i++) { %>
+  <h2><%= books[i].title %></h2>
+  <p><%= books[i].body %></p>
+<% } %>
