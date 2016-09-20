@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/mdewhirst1/api-project/issues"
   },
-  "homepage": "https://github.com/mdewhirst1/api-project#readme"
+  "homepage": "https://github.com/mdewhirst1/api-project#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
