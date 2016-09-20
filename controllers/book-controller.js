@@ -1,3 +1,21 @@
+var books=[{
+    id: 0,
+    title: "Adventure land",
+    body:  "This is an adventure book"
+  },
+    id: 1,
+    title: "Alice in wonderland",
+    body:  "Chick fells down the hole"
+  },
+    id: 2,
+    title: "3 Little piggies",
+    body:  "Book about three fat little piggies"
+  },
+    id: 3,
+    title: "Angels n Demons",
+    body:  "Mindfuck"
+  }];
+
 // INDEX
 function indexBook(req, res) {
   res.send("<h1>Homepage</h1>");
