@@ -20,14 +20,14 @@ var games=[{
 }];
 
 // INDEX
-function indexBook(req, res) {
+function indexGame(req, res) {
   res.render("games/index", {
     games: games
   });
 }
 
 // SHOW
-function showBook(req, res) {
+function showGame(req, res) {
   var game = games[req.params.id];
   res.render("games/show",{
     title: "Games",
@@ -36,29 +36,29 @@ function showBook(req, res) {
 }
 
 // CREATE
-function createBook(req, res) {
+function createGame(req, res) {
   res.send("CREATE");
 }
 
 // NEW
-function newBook(req, res) {
+function newGame(req, res) {
   res.render("games/new",{
     title: "new game"
   });
 }
 
 // UPDATE
-function updateBook(req, res) {
+function updateGame(req, res) {
   res.send("UPDATE: " + req.params.id);
 }
 
 // DELETE
-function deleteBook(req, res) {
+function deleteGame(req, res) {
   res.send("DELETE: " + req.params.id);
 }
 
 // EDIT
-function editBook(req, res) {
+function editGame(req, res) {
   res.send("EDIT: " + req.params.id);
 }
 
