@@ -18,7 +18,7 @@ var books=[{
 
 // INDEX
 function indexBook(req, res) {
-  res.send("<h1>Homepage</h1>");
+  res.render("books/index");
 }
 
 // SHOW
