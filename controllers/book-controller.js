@@ -39,7 +39,7 @@ function newBook(req, res) {
 
 // UPDATE
 function updateBook(req, res) {
-  Book.findByIdAndUpdate(req.params.id, {$set: req.body}, function(err, post) {
+  Book.findByIdAndUpdate(req.params.id, {$set: req.body}, function(err, book) {
     res.redirect("/books");
   });
 }
@@ -54,11 +54,12 @@ function deleteBook(req, res) {
 // EDIT
 function editBook(req, res) {
   Book.findById(req.params.id , function(err, book) {
-      if(!post) return res.status(404).send("Not found");
+      if(!book) return res.status(404).send("Not found");
       if(err) return res.status(500).send(err);
       res.render("books/edit" , {
         title: "edit the book",
-        book: book
+        book: book,
+        edit: true
       });
   });
 }
