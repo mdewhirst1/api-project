@@ -7,7 +7,6 @@ var methodOverride= require('method-override');
 
 var app = express();
 mongoose.connect("mongodb://localhost/books");
-mongoose.connect("mongodb://localhost/games");
 
 var bookRoutes = require('./config/books-routes');
 var gameRoutes = require('./config/games-routes');
