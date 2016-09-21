@@ -1,4 +1,6 @@
-var Game = require('../models/game');
+
+
+var Game = require("../models/game");
 
 // INDEX
 function indexGame(req, res) {
@@ -38,7 +40,7 @@ function createGame(req, res) {
 
 // NEW
 function newGame(req, res) {
-  var game= {
+  var newGame= {
     id: "",
     title: "",
     body: ""
@@ -46,34 +48,37 @@ function newGame(req, res) {
 
   res.render("games/new" , {
     title: "New Game",
-    game: game,
+    game: newGame,
     edit: false
   });
 }
 
 // UPDATE
 function updateGame(req, res) {
-  var game= games[req.params.id];
-    game.title=req.body.title;
-    game.body= req.body.body;
-    games[req.params.id]= game;
-
+  Game.findByIdAndUpdate(req.params.id,{ $set: req.body}, function(err, game){
     res.redirect("/games");
+  });
 }
 
 // DELETE
 function deleteGame(req, res) {
-  games.splice(req.params.id, 1);
-  res.redirect("/games");
+  Game.findByIdAndRemove( req.params.id, function(err){
+    res.redirect("/games");
+  });
 }
 
 // EDIT
 function editGame(req, res) {
-  res.render("games/edit" , {
-  title: "Edit Game",
-  game: games[req.params.id],
-  edit: true
-});
+  Game.findById(req.params.id , function(err, game) {
+      // check for errors or for no object found
+      if(!game) return res.status(404).send("Not found");
+      if(err) return res.status(500).send(err);
+
+      res.render("games/edit" , {
+        title: "Game",
+        game: game
+      });
+  });
 }
 
 module.exports = {
