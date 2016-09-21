@@ -1,5 +1,7 @@
 <h1>Book index</h1>
-<% for (var i = 0; i < books.length; i++) { %>
-  <h2><%= books[i].title %></h2>
-  <p><%= books[i].body %></p>
-<% } %>
+ <% for(var i = 0; i < books.length; i++ ) { %>
+  <div>
+    <h3><a href="/books/<%= books[i].id %>"><%= books[i].title %></a></h3>
+    <p><%= books[i].body %></p>
+  </div>
+ <% } %>
