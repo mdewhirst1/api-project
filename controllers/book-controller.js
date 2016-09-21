@@ -1,50 +1,33 @@
-var books=[{
-    id: 0,
-    title: "Adventure land",
-    body:  "This is an adventure book"
-  },
-  {
-    id: 1,
-    title: "Alice in wonderland",
-    body:  "Chick fells down the hole"
-  },
-  {
-    id: 2,
-    title: "3 Little piggies",
-    body:  "Book about three fat little piggies"
-  },
-  {
-    id: 3,
-    title: "Angels n Demons",
-    body:  "Mindfuck"
-}];
+var Book = require("../models/book");
 
 // INDEX
 function indexBook(req, res) {
-  res.render("books/index", {
-    title: "book index",
-    books: books
+  Book.find({}, function(err, books) {
+    res.render("books/index", {
+      title: "all the books",
+      books: books
+    });
   });
 }
 
 // SHOW
 function showBook(req, res) {
-  var book = books[req.params.id];
-  res.render("books/show",{
-    title: "Books",
-    book: book
+  Book.findById(req.params.id, function(err, book) {
+    if (!book) return res.status(404).send("Not Found");
+    if (err) return res.status(500).message(err);
+    res.render("books/show" , {
+      title: "just one book",
+      book: book
+    });
   });
 }
 
 // CREATE
 function createBook(req, res) {
-  var book = {
-    id: books.length,
-    title: req.body.title,
-    body: req.body.body
-  };
-  books.push(book);
-  res.redirect("/books");
+  Book.create(req.body, function(err, book) {
+    if (err) return res.status(500).message(err);
+    res.status(200).redirect("/books");
+  });
 }
 
 // NEW
@@ -56,22 +39,27 @@ function newBook(req, res) {
 
 // UPDATE
 function updateBook(req, res) {
-  res.send("UPDATE: " + req.params.id);
+  Book.findByIdAndUpdate(req.params.id, {$set: req.body}, function(err, post) {
+    res.redirect("/books");
+  });
 }
 
 // DELETE
 function deleteBook(req, res) {
-  res.send("DELETE: " + req.params.id);
+  Book.findByIdAndRemove(req.params.id, function(err) {
+    res.redirect("/books");
+  })
 }
 
 // EDIT
 function editBook(req, res) {
-  var book = books[req.params.id];
-  
-  res.render("books/edit",{
-    title: "edit book",
-    book: book,
-    edit: true
+  Book.findById(req.params.id , function(err, book) {
+      if(!post) return res.status(404).send("Not found");
+      if(err) return res.status(500).send(err);
+      res.render("books/edit" , {
+        title: "edit the book",
+        book: book
+      });
   });
 }
 
