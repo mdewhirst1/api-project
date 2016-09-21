@@ -1,11 +1,9 @@
 var express = require('express');
+var app = express();
 var ejs = require('ejs');
 var layouts = require('express-ejs-layouts');
 var bodyParser= require('body-parser');
 var methodOverride= require('method-override');
-var app = express();
-
-var bodyParser = require('body-parser');
 
 var bookRoutes = require('./config/books-routes');
 var gameRoutes = require('./config/games-routes');
@@ -21,8 +19,6 @@ app.use(methodOverride(function(req, res){
     return method;
   }
 }));
-
-app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(layouts);
 
