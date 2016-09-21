@@ -10,6 +10,7 @@ mongoose.connect("mongodb://localhost/books");
 
 var bookRoutes = require('./config/books-routes');
 var gameRoutes = require('./config/games-routes');
+var userRoutes = require('./config/user-routes');
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false}));
@@ -27,6 +28,7 @@ app.use(layouts);
 
 app.use(bookRoutes);
 app.use(gameRoutes);
+app.use(userRoutes);
 
 app.listen(process.env.PORT || 3000 , function(){
   console.log('app is listening on port 3000');
