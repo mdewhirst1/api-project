@@ -38,29 +38,54 @@ function showGame(req, res) {
 
 // CREATE
 function createGame(req, res) {
-  res.send("CREATE");
+  console.log(req.body);
+  var game={
+    id: games.length,
+    title: req.body.title,
+    body: req.body.body
+  };
+  games.push(game);
+  res.redirect("/");
 }
 
 // NEW
 function newGame(req, res) {
-  res.render("games/new",{
-    title: "new game"
+  var game= {
+    id: "",
+    title: "",
+    body: ""
+  };
+
+  res.render("games/new" , {
+    title: "New Game",
+    game: game,
+    edit: false
   });
 }
 
 // UPDATE
 function updateGame(req, res) {
-  res.send("UPDATE: " + req.params.id);
+  var game= games[req.params.id];
+    game.title=req.body.title;
+    game.body= req.body.body;
+    games[req.params.id]= game;
+
+    res.redirect("/");
 }
 
 // DELETE
 function deleteGame(req, res) {
-  res.send("DELETE: " + req.params.id);
+  games.splice(req.params.id, 1);
+  res.redirect("/");
 }
 
 // EDIT
 function editGame(req, res) {
-  res.send("EDIT: " + req.params.id);
+  res.render("games/edit" , {
+  title: "Edit Game",
+  game: games[req.params.id],
+  edit: true
+});
 }
 
 module.exports = {

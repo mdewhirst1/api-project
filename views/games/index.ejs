@@ -1,5 +1,8 @@
-<h1>Game index</h1>
-<% for (var i = 0; i < games.length; i++) { %>
-  <h2><%= games[i].title %></h2>
-  <p><%= games[i].body %></p>
-<% } %>
+<h1>Welcome to the homepage</h1>
+
+ <% for(var i = 0; i < games.length; i++ ) { %>
+  <div>
+    <h3><a href="/games/<%= games[i].id %>"><%= games[i].title %></a></h3>
+    <p><%= games[i].body %></p>
+  </div>
+ <% } %>
