@@ -6,6 +6,7 @@ var bodyParser= require('body-parser');
 var methodOverride= require('method-override');
 
 var app = express();
+mongoose.connect("mongodb://localhost/books");
 
 var bookRoutes = require('./config/books-routes');
 var gameRoutes = require('./config/games-routes');
