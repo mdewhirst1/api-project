@@ -1,51 +1,39 @@
-var games=[{
-    id: 0,
-    title: "Dead by Dayligh",
-    body:  "Run from the villain and fix generators, ESCAPE!"
-  },
-  {
-    id: 1,
-    title: "League of Legends",
-    body:  "Salty and rude players"
-  },
-  {
-    id: 2,
-    title: "Fallout 4",
-    body:  "Apocalyptic story game, RADIATION!"
-  },
-  {
-    id: 3,
-    title: "FIFA",
-    body:  "The most boring game ever invented"
-}];
+var Game = require('../models/game');
 
 // INDEX
 function indexGame(req, res) {
-  res.render("games/index", {
-    title: "Games",
-    games: games
+
+  Game.find({}, function(err, games) {
+    res.render("games/index", {
+      title: "Games",
+      games: games
+    });
   });
+
 }
 
 // SHOW
 function showGame(req, res) {
-  var game = games[req.params.id];
-  res.render("games/show",{
-    title: "Games",
-    game: game
+
+  Game.findById(req.params.id, function(err, game) {
+    if(!game) return res.status(404).send("Not Found");
+    if(err) return res.status(500).send(err);
+
+    res.render("games/show", {
+      title: "Game",
+      game: game
+    });
   });
 }
 
 // CREATE
 function createGame(req, res) {
-  console.log(req.body);
-  var game={
-    id: games.length,
-    title: req.body.title,
-    body: req.body.body
-  };
-  games.push(game);
-  res.redirect("/games");
+
+  Game.create(req.body, function(err, game) {
+    if(err) return res.status(500).message(err);
+    console.log(`game saved ${game}`);
+    res.status(200).redirect("/");
+  });
 }
 
 // NEW
