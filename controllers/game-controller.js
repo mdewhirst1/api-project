@@ -34,7 +34,7 @@ function createGame(req, res) {
   Game.create(req.body, function(err, game) {
     if(err) return res.status(500).message(err);
     console.log(`game saved ${game}`);
-    res.status(200).redirect("/");
+    res.status(200).redirect("/games");
   });
 }
 
@@ -76,7 +76,8 @@ function editGame(req, res) {
 
       res.render("games/edit" , {
         title: "Game",
-        game: game
+        game: game,
+        edit: true
       });
   });
 }
