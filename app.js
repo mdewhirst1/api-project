@@ -1,9 +1,11 @@
 var express = require('express');
-var app = express();
+var mongoose = require('mongoose');
 var ejs = require('ejs');
 var layouts = require('express-ejs-layouts');
 var bodyParser= require('body-parser');
 var methodOverride= require('method-override');
+
+var app = express();
 
 var bookRoutes = require('./config/books-routes');
 var gameRoutes = require('./config/games-routes');
