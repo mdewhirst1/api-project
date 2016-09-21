@@ -45,7 +45,7 @@ function createGame(req, res) {
     body: req.body.body
   };
   games.push(game);
-  res.redirect("/");
+  res.redirect("/games");
 }
 
 // NEW
@@ -70,13 +70,13 @@ function updateGame(req, res) {
     game.body= req.body.body;
     games[req.params.id]= game;
 
-    res.redirect("/");
+    res.redirect("/games");
 }
 
 // DELETE
 function deleteGame(req, res) {
   games.splice(req.params.id, 1);
-  res.redirect("/");
+  res.redirect("/games");
 }
 
 // EDIT
