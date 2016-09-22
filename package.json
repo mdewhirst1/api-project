@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/mdewhirst1/api-project.git"
   },
-  "author": "Matthew Dewhirst and Laura Salivonaite",
+  "author": "Matthew Dewhirst, Laura Salivonaite and Tom Hanson",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mdewhirst1/api-project/issues"
@@ -23,5 +23,9 @@
     "express-ejs-layouts": "^2.2.0",
     "method-override": "^2.3.6",
     "mongoose": "^4.6.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0"
   }
 }
