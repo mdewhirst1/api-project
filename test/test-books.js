@@ -53,11 +53,11 @@ describe('books', function() {
         });
     });
 
-  it('should add a SINGLE Book on /books Book' , function(done){
+  it('should add a SINGLE Book on /books POST' , function(done){
     var request = chai.request(app);
 
     request
-      .Book('/books')
+      .post('/books')
       .set('content-type', 'application/x-www-form-urlencoded') // set the form encoding type
       .send({'title': 'Test Book', 'body': 'Body Text'}) // the data to be Posted
       .end(function(err, res){
