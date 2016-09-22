@@ -24,6 +24,8 @@ app.use(methodOverride(function(req, res){
   }
 }));
 
+app.use(express.static(__dirname + '/css'));
+
 app.use(layouts);
 
 app.use(bookRoutes);
