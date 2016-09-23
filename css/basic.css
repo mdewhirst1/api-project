@@ -68,6 +68,10 @@ form{
     opacity: 0.6;
 }
 
+textarea{
+	max-width: 95%;
+}
+
 @media screen and (max-width: 720px){
 
   .content{
