@@ -4,7 +4,7 @@ body {
 .content{
 	text-align: left;
 	width: 800px;
-	height: 1000px;
+	height: 100%;
 	margin-right: auto;
 	margin-left: auto;
 	background: url('image.jpg');
