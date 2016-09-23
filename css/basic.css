@@ -11,6 +11,10 @@ body {
 	box-shadow: 0 0 8px rgba(0, 0, 0, 0.32);
 	margin-top: 5em;
 }
+
+.editbutton{
+	padding-left: 70px;
+}
 a{
 	border-left: 1px solid #3e3e3d;
 }
