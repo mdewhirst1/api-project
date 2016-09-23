@@ -32,6 +32,11 @@ app.use(bookRoutes);
 app.use(gameRoutes);
 app.use(userRoutes);
 
+//default route redirects to books
+app.use('/', function(req, res) {
+	res.status(200).redirect('/books');
+});
+
 app.listen(process.env.PORT || 3000 , function(){
   console.log('app is listening on port 3000');
 });
