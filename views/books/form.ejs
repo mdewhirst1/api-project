@@ -1,15 +1,15 @@
 <form action="/books/<%= book.id %>" method="POST">
-  
+
   <% if (edit) { %>
   <input type="hidden" name="_method" value="PUT">
   <% } %>
-
+  <br>
   <input type="text" name="title" value="<%= book.title %>" placeholder="Title goes here." />
-
+  <br>
   <textarea name="body" placeholder="The body of the book.">
-    <%= book.body %>
+<%= book.body %>
   </textarea>
-
+  <br>
   <input type="submit" value="Save Book" />
 
 </form>

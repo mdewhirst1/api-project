@@ -53,6 +53,21 @@ form{
 	padding-left: 60px;
 }
 
+.placeholder
+{
+    position: relative;
+}
+
+.placeholder::after
+{
+    position: absolute;
+    left: 5px;
+    top: 3px;
+    content: attr(data-placeholder);
+    pointer-events: none;
+    opacity: 0.6;
+}
+
 @media screen and (max-width: 720px){
 
   .content{
